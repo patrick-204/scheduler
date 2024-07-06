@@ -1,42 +1,29 @@
 import React from "react";
-
-import {
-  getAppointmentsForDay,
-  getInterviewersForDay,
-  getInterview
-} from "helpers/selectors";
-
 import useApplicationData from "hooks/useApplicationData";
-
 import "components/Application.scss";
-
 import DayList from "components/DayList";
 import Appointment from "components/Appointment";
+import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "helpers/selectors";
+
+// Define CREATE mode constant
+const CREATE = "CREATE";
 
 export default function Application(props) {
-  const {
-    state,
-    setDay,
-    bookInterview,
-    cancelInterview
-  } = useApplicationData();
-
+  const { state, setDay, bookInterview, cancelInterview, transition } = useApplicationData();
   const interviewers = getInterviewersForDay(state, state.day);
 
-  const appointments = getAppointmentsForDay(state, state.day).map(
-    appointment => {
-      return (
-        <Appointment
-          key={appointment.id}
-          {...appointment}
-          interview={getInterview(state, appointment.interview)}
-          interviewers={interviewers}
-          bookInterview={bookInterview}
-          cancelInterview={cancelInterview}
-        />
-      );
-    }
-  );
+  const appointments = getAppointmentsForDay(state, state.day).map(appointment => (
+    <Appointment
+      key={appointment.id}
+      {...appointment}
+      interview={getInterview(state, appointment.interview)}
+      interviewers={interviewers}
+      bookInterview={bookInterview}
+      cancelInterview={cancelInterview}
+      // Pass function to transition to CREATE mode
+      onAdd={() => transition(CREATE)}
+    />
+  ));
 
   return (
     <main className="layout">
