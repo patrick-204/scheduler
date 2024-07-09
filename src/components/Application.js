@@ -20,7 +20,6 @@ export default function Application(props) {
       interviewers={interviewers}
       bookInterview={bookInterview}
       cancelInterview={cancelInterview}
-      // Pass function to transition to CREATE mode
       onAdd={() => transition(CREATE)}
     />
   ));
