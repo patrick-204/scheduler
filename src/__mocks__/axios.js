@@ -79,4 +79,53 @@ export default {
       });
     }
   }),
+
+  put: jest.fn((url, data) => {
+    if (url === "/api/days") {
+      // Example: Update spots for a specific day
+      const day = fixtures.days.find(day => day.id === data.id);
+      if (day) {
+        day.spots = data.spots; // Update the spots
+      }
+  
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content",
+      });
+    }
+  
+    if (url === "/api/appointments") {
+      // Example: Update an appointment with the interview data
+      const appointment = fixtures.appointments[data.id];
+      if (appointment) {
+        appointment.interview = data.interview; // Update the interview
+      }
+  
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content",
+      });
+    }
+  
+    if (url === "/api/interviewers") {
+      // Example: Update an interviewer
+      const interviewer = fixtures.interviewers[data.id];
+      if (interviewer) {
+        interviewer.name = data.name; // Update the name
+        interviewer.avatar = data.avatar; // Update the avatar
+      }
+  
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content",
+      });
+    }
+  
+    // If the URL doesn't match, return a 404 or appropriate status
+    return Promise.reject({
+      status: 404,
+      statusText: "Not Found",
+    });
+  }),
+  
 };
