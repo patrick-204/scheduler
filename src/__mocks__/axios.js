@@ -123,4 +123,18 @@ export default {
       statusText: "Not Found",
     });
   }),
+
+  delete: jest.fn((url) => {
+    if (url === "/api/appointments") {
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content",
+      });
+    }
+    
+    return Promise.reject({
+      status: 404,
+      statusText: "Not Found",
+    });
+  }),
 };

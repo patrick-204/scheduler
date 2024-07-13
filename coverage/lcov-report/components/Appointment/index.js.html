@@ -22,30 +22,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.83% </span>
+                <span class="strong">69.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/23</span>
+                <span class='fraction'>16/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">65% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>13/20</span>
+                <span class='fraction'>16/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/10</span>
+                <span class='fraction'>4/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.83% </span>
+                <span class="strong">69.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/23</span>
+                <span class='fraction'>16/23</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -174,34 +174,34 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -275,17 +275,17 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 &nbsp;
-  function <span class="fstat-no" title="function not covered" >save(</span>name, interviewer) {
-    const interview = <span class="cstat-no" title="statement not covered" >{</span>
+  function save(name, interviewer) {
+    const interview = {
       student: name,
       interviewer
     };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    transition(SAVING);</span>
+    transition(SAVING);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    props.bookInterview(props.id, interview)</span>
+    props.bookInterview(props.id, interview)
       .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >transition(SHOW))</span>
-      .catch(<span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >transition(ERROR_SAVE, true))</span>;
+      .catch(error =&gt; transition(ERROR_SAVE, true));
   }
 &nbsp;
   function <span class="fstat-no" title="function not covered" >destroy(</span>) {
@@ -298,7 +298,7 @@ export default function Appointment(props) {
   return (
     &lt;article className="appointment" data-testid="appointment"&gt;
       &lt;Header time={props.time} /&gt;
-      {mode === EMPTY &amp;&amp; &lt;Empty onAdd={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >transition(CREATE)}</span> /&gt;}
+      {mode === EMPTY &amp;&amp; &lt;Empty onAdd={() =&gt; transition(CREATE)} /&gt;}
       {mode === SHOW &amp;&amp; (
         &lt;Show
           student={props.interview.student}
@@ -308,7 +308,7 @@ export default function Appointment(props) {
         /&gt;
       )}
       {mode === CREATE &amp;&amp; (
-<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;Form</span>
+        &lt;Form
           interviewers={props.interviewers}
           onSave={save}
           onCancel={back}
@@ -323,7 +323,7 @@ export default function Appointment(props) {
           onCancel={back}
         /&gt;
       )}
-      {mode === SAVING &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;Status message="Saving" /&gt;}</span>
+      {mode === SAVING &amp;&amp; &lt;Status message="Saving" /&gt;}
       {mode === DELETING &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;Status message="Deleting" /&gt;}</span>
       {mode === CONFIRM &amp;&amp; (
 <span class="branch-1 cbranch-no" title="branch not covered" >        &lt;Confirm</span>
@@ -333,7 +333,7 @@ export default function Appointment(props) {
         /&gt;
       )}
       {mode === ERROR_SAVE &amp;&amp; (
-<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;Error</span>
+        &lt;Error
           message="Could not book appointment."
           onClose={back}
         /&gt;
@@ -354,7 +354,7 @@ export default function Appointment(props) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jul 09 2024 21:38:31 GMT-0400 (Eastern Daylight Time)
+                at Fri Jul 12 2024 21:19:42 GMT-0400 (Eastern Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
