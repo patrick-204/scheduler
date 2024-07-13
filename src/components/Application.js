@@ -5,7 +5,6 @@ import DayList from "components/DayList";
 import Appointment from "components/Appointment";
 import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "helpers/selectors";
 
-// Define CREATE mode constant
 const CREATE = "CREATE";
 
 export default function Application(props) {
